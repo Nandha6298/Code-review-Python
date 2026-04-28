@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Project: {{ project_name }}</h2>
+<p>Scores: {{ scores }}</p>
+<table border="1" cellpadding="6">
+<tr><th>Category</th><th>File</th><th>Line</th><th>Severity</th><th>Message</th><th>Fix</th></tr>
+{% for f in findings %}
+<tr>
+<td>{{ f.category }}</td><td>{{ f.file_path }}</td><td>{{ f.line_number }}</td>
+<td><span class="badge {{ f.severity }}">{{ f.severity }}</span></td>
+<td>{{ f.message }}</td><td>{{ f.suggested_fix }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
