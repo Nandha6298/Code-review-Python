@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Open Vulnerabilities ({{ status }})</h2>
+<table border="1" cellpadding="6">
+<tr><th>ID</th><th>Project</th><th>CVE</th><th>Package</th><th>Severity</th><th>Status</th></tr>
+{% for v in vulnerabilities %}
+<tr>
+<td>{{ v.id }}</td><td>{{ v.project_id }}</td><td>{{ v.cve_id }}</td><td>{{ v.package }}</td>
+<td><span class="badge {{ v.severity }}">{{ v.severity }}</span></td><td>{{ v.status }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
