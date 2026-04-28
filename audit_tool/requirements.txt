@@ -3,6 +3,7 @@ fastapi==0.115.6
 jinja2==3.1.4
 uvicorn==0.32.1
 weasyprint==63.1
+xhtml2pdf==0.2.16
 radon==6.0.1
 safety==3.2.11
 pip-audit==2.7.3
