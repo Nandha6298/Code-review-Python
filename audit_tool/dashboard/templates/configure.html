@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Configure Project</h2>
+{% if saved %}<p><b>Saved!</b></p>{% endif %}
+<form method="post">
+  <label>Project Path: <input name="path" /></label><br>
+  <label>Schedule:
+    <select name="schedule"><option>manual</option><option>weekly</option><option>monthly</option></select>
+  </label><br>
+  <label>Emails (comma separated): <input name="emails" /></label><br>
+  <label><input type="checkbox" name="processes" value="folder"> Folder</label>
+  <label><input type="checkbox" name="processes" value="code"> Code</label>
+  <label><input type="checkbox" name="processes" value="deps"> Dependencies</label>
+  <label><input type="checkbox" name="processes" value="vuln"> Vulnerabilities</label>
+  <label><input type="checkbox" name="processes" value="perf"> Performance</label><br>
+  <button type="submit">Save</button>
+</form>
+<p>Detected languages: {{ detected_languages }}</p>
+<p>Detected DB: {{ detected_db }}</p>
+{% endblock %}

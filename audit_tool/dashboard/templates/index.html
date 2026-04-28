@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Configured Projects</h2>
+<table border="1" cellpadding="6">
+<tr><th>Name</th><th>Path</th><th>Latest Score</th><th>Grade</th></tr>
+{% for row in projects %}
+<tr>
+  <td><a href="/project/{{ row.project.id }}">{{ row.project.project_name }}</a></td>
+  <td>{{ row.project.source_path }}</td>
+  <td>{{ row.run.final_score if row.run else 'N/A' }}</td>
+  <td>{{ row.run.grade if row.run else 'N/A' }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
